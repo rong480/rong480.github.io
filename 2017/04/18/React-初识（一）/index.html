@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="React,React概念,ES6,Babel,Webpack,create-react-app," />
 
 
 
@@ -90,15 +90,22 @@
 
 
 
-<meta name="description" content="前端之路，技术交流">
-<meta property="og:type" content="website">
-<meta property="og:title" content="云泽之间">
-<meta property="og:url" content="http://rong480.github.io/index.html">
+<meta name="description" content="React是什么？ React.js（React）github上的原文解释是 A declarative, efficient, and flexible JavaScript library for building user interfaces.我个人翻译过来，一个 声明的，高效的，灵活的JavaScript库来构建用户界面。 React的起源React起源于Facebook的内部项目，因为">
+<meta name="keywords" content="React,React概念,ES6,Babel,Webpack,create-react-app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 初识（一）">
+<meta property="og:url" content="http://rong480.github.io/2017/04/18/React-初识（一）/index.html">
 <meta property="og:site_name" content="云泽之间">
-<meta property="og:description" content="前端之路，技术交流">
+<meta property="og:description" content="React是什么？ React.js（React）github上的原文解释是 A declarative, efficient, and flexible JavaScript library for building user interfaces.我个人翻译过来，一个 声明的，高效的，灵活的JavaScript库来构建用户界面。 React的起源React起源于Facebook的内部项目，因为">
+<meta property="og:image" content="http://rong480.github.io/images/react.jpg">
+<meta property="og:image" content="http://rong480.github.io/images/ecma.jpg">
+<meta property="og:image" content="http://rong480.github.io/images/babel.jpg">
+<meta property="og:image" content="http://rong480.github.io/images/webpack.jpg">
+<meta property="og:updated_time" content="2017-05-28T15:54:38.408Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="云泽之间">
-<meta name="twitter:description" content="前端之路，技术交流">
+<meta name="twitter:title" content="React 初识（一）">
+<meta name="twitter:description" content="React是什么？ React.js（React）github上的原文解释是 A declarative, efficient, and flexible JavaScript library for building user interfaces.我个人翻译过来，一个 声明的，高效的，灵活的JavaScript库来构建用户界面。 React的起源React起源于Facebook的内部项目，因为">
+<meta name="twitter:image" content="http://rong480.github.io/images/react.jpg">
 
 
 
@@ -126,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://rong480.github.io/"/>
+  <link rel="canonical" href="http://rong480.github.io/2017/04/18/React-初识（一）/"/>
 
 
 
 
 
-  <title>云泽之间</title>
+  <title>React 初识（一） | 云泽之间</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -158,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-   page-home 
- ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -263,251 +268,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rong480.github.io/2017/04/24/React-基础（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuliZ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云泽之间">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/24/React-基础（三）/" itemprop="url">React-基础（三）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-24T10:17:46+08:00">
-                2017-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          首先，生成新的react文件夹，还是要删除所有东西，只留index.js和logo.svg在index.js中创建新的项目12345678import React from 'react'import ReactDOM from 'react-dom'import App from './app.j
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/24/React-基础（三）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rong480.github.io/2017/04/22/React-基础（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuliZ">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="云泽之间">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/22/React-基础（二）/" itemprop="url">React-基础（二）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T13:36:03+08:00">
-                2017-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          上一回我们说到了react需要的准备，现在我们说说如何使用React吧。
-react的前置概念
-React有一个核心思想—组件化
-有两个带头大哥—react和react-dom
-一个基本运作方式—数据驱动视图
-一个神秘卧底—jsx语法
-三个主要帮手—state（状态）、props（属性）、refs（
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/22/React-基础（二）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
 
   
 
@@ -533,9 +296,7 @@ React有一个核心思想—组件化
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/04/18/React-初识（一）/" itemprop="url">React 初识（一）</a></h2>
+          <h2 class="post-title" itemprop="name headline">React 初识（一）</h2>
         
 
         <div class="post-meta">
@@ -582,53 +343,112 @@ React有一个核心思想—组件化
       
 
       
+        <h2 id="React是什么？"><a href="#React是什么？" class="headerlink" title="React是什么？"></a>React是什么？</h2><p><img src="/images/react.jpg" alt="react"></p>
+<p><strong>React.js</strong>（React）github上的原文解释是 A declarative, efficient, and flexible JavaScript library for building user interfaces.<br>我个人翻译过来，一个 声明的，高效的，灵活的JavaScript库来构建用户界面。</p>
+<h2 id="React的起源"><a href="#React的起源" class="headerlink" title="React的起源"></a>React的起源</h2><p><strong>React</strong>起源于Facebook的内部项目，因为该公司对市场上所有的JavaScript MVC框架，都不满意，于是他们就自己写了一套，当初是用来架设Instagram网站。<br>做出来后，发现东西很好用，于是就开源了。</p>
+<h2 id="使用React需要什么准备？"><a href="#使用React需要什么准备？" class="headerlink" title="使用React需要什么准备？"></a>使用React需要什么准备？</h2><h3 id="1-ES6"><a href="#1-ES6" class="headerlink" title="1. ES6"></a>1. ES6</h3><p><img src="/images/ecma.jpg" alt="ECMA"></p>
+<p>ES6的起源</p>
+<ul>
+<li>1996年JavaScript提交给国际标准化组织ECMA，所以官方称呼这门语言为ECMAScript。</li>
+<li>ECMAScript也需要不断的升级完善，2011年ECMAScript5.1版发布。</li>
+<li>版本5的ECMAScript功能稳定，但基于nodejs的出现，ECMAScript觉得自己也得进步，于是在2015年发布了ECMAScript6，因为名字太长不好念，于是简写为ES6。</li>
+<li>ES6的具体介绍详见 阮一峰大神的<a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">ES6入门</a></li>
+</ul>
+<h3 id="2-BABEL"><a href="#2-BABEL" class="headerlink" title="2. BABEL"></a>2. BABEL</h3><p><img src="/images/babel.jpg" alt="BABEL"></p>
+<ul>
+<li>当不使用BABEL，会有如下问题<ul>
+<li>各大浏览器老而弥坚。</li>
+<li>浏览器更新速度快。</li>
+</ul>
+</li>
+<li>使用BABEL会解决这些问题<ul>
+<li>会使老浏览器焕发青春。</li>
+<li>利用各种手段将ES6代码编译为ES5代码。</li>
+</ul>
+</li>
+</ul>
+<p><em>BABEL的问题：如何使BABEL自身自觉工作呢？</em></p>
+<h3 id="3-webpack"><a href="#3-webpack" class="headerlink" title="3. webpack"></a>3. webpack</h3><p><img src="/images/webpack.jpg" alt="webpack"></p>
+<p>使BABEL神不知鬼不觉进行工作的黑科技。</p>
+<h3 id="4-然而以上三个不怎么重要，下面介绍一个"><a href="#4-然而以上三个不怎么重要，下面介绍一个" class="headerlink" title="4. 然而以上三个不怎么重要，下面介绍一个"></a>4. 然而以上三个不怎么重要，下面介绍一个</h3><p><code>create-react-app</code> 具有：</p>
+<ul>
+<li>来自Facebook的黑科技</li>
+<li>自动安装webpack</li>
+<li>自动安装babel</li>
+<li>直接开始用ES6编译开发</li>
+</ul>
+<h4 id="安装create-react-app："><a href="#安装create-react-app：" class="headerlink" title="安装create-react-app："></a>安装create-react-app：</h4><p>先全局安装create-react-app</p>
+<pre><code>- npm install -g create-react-app
+</code></pre><p>创建create-react-app文件</p>
+<pre><code>- create-react-app &lt;file&gt;
+</code></pre><p>下一章，将介绍如何使用react</p>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          React是什么？
-React.js（React）github上的原文解释是 A declarative, efficient, and flexible JavaScript library for building user interfaces.我个人翻译过来，一个 声明的，高效的，灵活的Ja
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/18/React-初识（一）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/React-React概念-ES6-Babel-Webpack-create-react-app/" rel="tag"># React,React概念,ES6,Babel,Webpack,create-react-app</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/22/React-基础（二）/" rel="prev" title="React-基础（二）">
+                React-基础（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -636,6 +456,10 @@ React.js（React）github上的原文解释是 A declarative, efficient, and fle
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -655,8 +479,17 @@ React.js（React）github上的原文解释是 A declarative, efficient, and fle
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -709,6 +542,22 @@ React.js（React）github上的原文解释是 A declarative, efficient, and fle
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React是什么？"><span class="nav-number">1.</span> <span class="nav-text">React是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#React的起源"><span class="nav-number">2.</span> <span class="nav-text">React的起源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用React需要什么准备？"><span class="nav-number">3.</span> <span class="nav-text">使用React需要什么准备？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-ES6"><span class="nav-number">3.1.</span> <span class="nav-text">1. ES6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-BABEL"><span class="nav-number">3.2.</span> <span class="nav-text">2. BABEL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-webpack"><span class="nav-number">3.3.</span> <span class="nav-text">3. webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-然而以上三个不怎么重要，下面介绍一个"><span class="nav-number">3.4.</span> <span class="nav-text">4. 然而以上三个不怎么重要，下面介绍一个</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装create-react-app："><span class="nav-number">3.4.1.</span> <span class="nav-text">安装create-react-app：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -822,6 +671,10 @@ React.js（React）github上的原文解释是 A declarative, efficient, and fle
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

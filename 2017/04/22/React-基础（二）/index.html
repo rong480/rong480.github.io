@@ -1,0 +1,732 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="React,React基础,react,react-dom,数据驱动视图,jsx," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="上一回我们说到了react需要的准备，现在我们说说如何使用React吧。 react的前置概念 React有一个核心思想—组件化 有两个带头大哥—react和react-dom 一个基本运作方式—数据驱动视图 一个神秘卧底—jsx语法 三个主要帮手—state（状态）、props（属性）、refs（实例） 打杂小弟—声明周期   react的使用react的两个带头大哥和神秘卧底jsx这么说完是不">
+<meta name="keywords" content="React,React基础,react,react-dom,数据驱动视图,jsx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React-基础（二）">
+<meta property="og:url" content="http://rong480.github.io/2017/04/22/React-基础（二）/index.html">
+<meta property="og:site_name" content="云泽之间">
+<meta property="og:description" content="上一回我们说到了react需要的准备，现在我们说说如何使用React吧。 react的前置概念 React有一个核心思想—组件化 有两个带头大哥—react和react-dom 一个基本运作方式—数据驱动视图 一个神秘卧底—jsx语法 三个主要帮手—state（状态）、props（属性）、refs（实例） 打杂小弟—声明周期   react的使用react的两个带头大哥和神秘卧底jsx这么说完是不">
+<meta property="og:updated_time" content="2017-04-24T02:45:21.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React-基础（二）">
+<meta name="twitter:description" content="上一回我们说到了react需要的准备，现在我们说说如何使用React吧。 react的前置概念 React有一个核心思想—组件化 有两个带头大哥—react和react-dom 一个基本运作方式—数据驱动视图 一个神秘卧底—jsx语法 三个主要帮手—state（状态）、props（属性）、refs（实例） 打杂小弟—声明周期   react的使用react的两个带头大哥和神秘卧底jsx这么说完是不">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://rong480.github.io/2017/04/22/React-基础（二）/"/>
+
+
+
+
+
+  <title>React-基础（二） | 云泽之间</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">云泽之间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">前端之路</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rong480.github.io/2017/04/22/React-基础（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuliZ">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="云泽之间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">React-基础（二）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T13:36:03+08:00">
+                2017-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上一回我们说到了react需要的准备，现在我们说说如何使用React吧。</p>
+<h2 id="react的前置概念"><a href="#react的前置概念" class="headerlink" title="react的前置概念"></a>react的前置概念</h2><ul>
+<li>React有一个核心思想—组件化</li>
+<li>有两个带头大哥—react和react-dom</li>
+<li>一个基本运作方式—数据驱动视图</li>
+<li>一个神秘卧底—jsx语法</li>
+<li>三个主要帮手—state（状态）、props（属性）、refs（实例）</li>
+<li>打杂小弟—声明周期</li>
+</ul>
+<hr>
+<h2 id="react的使用"><a href="#react的使用" class="headerlink" title="react的使用"></a>react的使用</h2><h3 id="react的两个带头大哥和神秘卧底jsx"><a href="#react的两个带头大哥和神秘卧底jsx" class="headerlink" title="react的两个带头大哥和神秘卧底jsx"></a>react的两个带头大哥和神秘卧底jsx</h3><p>这么说完是不是什么都看不明白，好，我们具体举例子，在gitbash中输入 $ create-react-app  &lt;file&gt;<br>创建好文件夹后，在文件夹内运行npm start，默认打开localhost：3000端口可以打开默认react页面。<br>在创建的文件夹内的public内，用编译器打开index.html，我们发现这个html内，除了一个id=root的空div之外，剩下没什么有用的内容了，但是是什么驱动了react默认页面的呢？</p>
+<p>我们把src内除了logo.svg与index.js之外的其他文件都删除掉，并且把index.js内容都删除掉。<br>现在再加载npm start是不是页面上就应该什么都没有了，然后我们要自己在index.js文件里写些语句来实现<strong>数据驱动视图</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//首先引入两个重要的模块</div><div class="line">import React from 'react'</div><div class="line">import ReactDOM from 'react-dom'</div><div class="line"></div><div class="line">//react-dom 负责页面内容的控制</div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;h1&gt;我是react生成的内容&lt;/h1&gt;,</div><div class="line">    document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>再在bash命令行里输入”npm start”，就可以在localhost：3000端口表现页面了</p>
+<h3 id="react-dom"><a href="#react-dom" class="headerlink" title="react-dom"></a>react-dom</h3><p>这样页面就可以显示出“我是react生成的内容”，其中<strong>react-dom有两个参数</strong>：</p>
+<ol>
+<li>渲染的内容；</li>
+<li>渲染进页面的位置。<h3 id="jsx"><a href="#jsx" class="headerlink" title="jsx"></a>jsx</h3>渲染进页面的内容的h1标签是怎么被实现出来的呢？<br>这里我请出了神秘卧底 <strong>jsx</strong>，JSX 是一个看起来很像 XML 的 JavaScript 语法扩展。<br>我们不需要一定使用<strong>jsx</strong>，但它有以下<strong>优点</strong>：</li>
+<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化；</li>
+<li>它是类型安全的，在编译过程中就能发现错误；</li>
+<li>使用 JSX 编写模板更加简单快速。<h3 id="react"><a href="#react" class="headerlink" title="react"></a>react</h3>刚刚使用react-dom了，但是为什么要先引入react这个模块呢？因为我使用了 <strong>jsx</strong>，如果不引入react模块，则无法读取jsx语句</li>
+</ol>
+<h3 id="react的组件"><a href="#react的组件" class="headerlink" title="react的组件"></a>react的组件</h3><p>我们引入新的概念：<strong>react中的组件</strong><br>现在刚刚输入的index.js中继续输入，当输入以下内容时：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">    &lt;h1&gt;我是react生成的内容&lt;/h1&gt;</div><div class="line">	&lt;h2&gt;副标题&lt;/h2&gt;,</div><div class="line">    document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>页面是会报错，不会显示任何内容，主要原因是，react-dom的第一个参数：渲染的内容，必须是由一个闭合标签引入。以上的内容可以通过以下解决报错问题：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;h1&gt;我是react生成的内容&lt;/h1&gt;</div><div class="line">		&lt;h2&gt;副标题&lt;/h2&gt;</div><div class="line">	&lt;/div&gt;,</div><div class="line">    document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>这样就可以了，第一个参数必须是闭合的标签，且里面的内容也应该是闭合的标签。<br>然后我们说react中的组件,先举个例子<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//自定义一个Ul组件</div><div class="line">class Ul extends React.Component&#123;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;ul&gt;</div><div class="line">				&lt;li&gt;Text&lt;/li&gt;</div><div class="line">				&lt;li&gt;Text&lt;/li&gt;</div><div class="line">				&lt;li&gt;Text&lt;/li&gt;</div><div class="line">				&lt;li&gt;Text&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">    	)&#125;</div><div class="line">	&#125;</div><div class="line">ReactDOM.render(</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;h1&gt;我是react生成的内容&lt;/h1&gt;</div><div class="line">		&lt;Ul /&gt;</div><div class="line">	&lt;/div&gt;,</div><div class="line">    document.getElementById('root')</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>如果引用react中的组件，必须先自定义个组件。<br>具体操作为：class “Name” extends React.Component{render(){return(闭合的要渲染进去的内容)}}</p>
+<p>在index.js中可以引入渲染中需要的css的。<br>现在index.js先引入css文件：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">"./index.css"</span></div></pre></td></tr></table></figure></p>
+<p>渲染的时候就可以添加样式了。</p>
+<p><strong>插值</strong>可以是简单的表达式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">class Ul extends React.Component&#123;</div><div class="line">  constructor()&#123;</div><div class="line">    super();</div><div class="line">    this.state = &#123;</div><div class="line">      time:(new Date()).toLocaleTimeString()</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  say()&#123;</div><div class="line">    return("hello world")</div><div class="line">  &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>渲染到html上就是：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">2</span></div><div class="line">假的</div><div class="line">hello world</div><div class="line">下午<span class="number">8</span>:<span class="number">00</span>:<span class="number">51</span></div></pre></td></tr></table></figure></p>
+<p>但显示的时间仅是现在的时间，不能及时修改时间，我们暂且用这种想法试试呢？<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Ul extends React.Component&#123;</div><div class="line">  constructor()&#123;</div><div class="line">    super();</div><div class="line">    this.state = &#123;</div><div class="line">      time:(new Date()).toLocaleTimeString()</div><div class="line">    &#125;</div><div class="line">	setInterval(()=&gt;&#123;</div><div class="line">      this.state.time=(new Date()).toLocaleTimeString()</div><div class="line">    &#125;,1000)</div><div class="line">  &#125;</div><div class="line">  say()&#123;</div><div class="line">    return("hello world")</div><div class="line">  &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样的写法也不会及时更改时间，永远不要直接修改state，如果要出现页面view的变化，要通过setState方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setInterval(()=&gt;&#123;</div><div class="line">     <span class="keyword">this</span>.setState(&#123;time:(<span class="keyword">new</span> Date()).toLocaleTimeString()&#125;)</div><div class="line">   &#125;,<span class="number">1000</span>)</div></pre></td></tr></table></figure></p>
+<p>这样显示的就是即时时间<br>但都写在一个文件里，不太好，能不能通过引用组件呢？<br>我们在index.js里写：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Ul from <span class="string">'./Ul.js'</span></div></pre></td></tr></table></figure></p>
+<p>在同级创建个Ul.js文件<br>可以把有关Ul组件的东西考到Ul.js里，一定要在Ul.js里引用react，并在最后抛出Ul组件<br>则在Ul.js里写：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import React from "react"</div><div class="line"></div><div class="line">class Ul extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">        this.state = &#123;</div><div class="line">            time:(new Date()).toLocaleTimeString()</div><div class="line">        &#125;</div><div class="line">        setInterval(()=&gt;&#123;</div><div class="line">            this.setState(&#123;time:(new Date()).toLocaleTimeString()&#125;)</div><div class="line">    &#125;,1000)</div><div class="line">    &#125;</div><div class="line">    say()&#123;</div><div class="line">        return("hello world")</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">        &lt;ul&gt;</div><div class="line">        &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Ul</div></pre></td></tr></table></figure></p>
+<h2 id="jsx并不是真正的HTML标签，而是虚拟的DOM-Tree"><a href="#jsx并不是真正的HTML标签，而是虚拟的DOM-Tree" class="headerlink" title="jsx并不是真正的HTML标签，而是虚拟的DOM Tree"></a>jsx并不是真正的HTML标签，而是虚拟的DOM Tree</h2><p>我们会发现，刚刚实现的网页，在浏览器上，对象里，有个div，既不在head标签内，也不再body标签内，而是单独的一个div，点开会发现，里面有个#shadow-root,这个东西就是个 <strong>虚拟的 DOM Tree</strong> ，他是DOM结构的一个映射，一个影子。<br>即在react一般不会在真实的DOM Tree里操作，一般是在虚拟的DOM Tree中实现，再投射在真实的DOM Tree。<br>这里再说一下react厉害之处，它可以识别到真实的DOM Tree和虚拟的DOM Tree。比如刚刚的时间，原来使用的是把整个页面都重新刷新一遍，现在，只需要刷新时间这部分的内容就可以了。<br>jsx中的{}插值的位置都很随意。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React-React基础-react-react-dom-数据驱动视图-jsx/" rel="tag"># React,React基础,react,react-dom,数据驱动视图,jsx</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/18/React-初识（一）/" rel="next" title="React 初识（一）">
+                <i class="fa fa-chevron-left"></i> React 初识（一）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/24/React-基础（三）/" rel="prev" title="React-基础（三）">
+                React-基础（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="liuliZ" />
+          <p class="site-author-name" itemprop="name">liuliZ</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#react的前置概念"><span class="nav-number">1.</span> <span class="nav-text">react的前置概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#react的使用"><span class="nav-number">2.</span> <span class="nav-text">react的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#react的两个带头大哥和神秘卧底jsx"><span class="nav-number">2.1.</span> <span class="nav-text">react的两个带头大哥和神秘卧底jsx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react-dom"><span class="nav-number">2.2.</span> <span class="nav-text">react-dom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsx"><span class="nav-number">2.3.</span> <span class="nav-text">jsx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react"><span class="nav-number">2.4.</span> <span class="nav-text">react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react的组件"><span class="nav-number">2.5.</span> <span class="nav-text">react的组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsx并不是真正的HTML标签，而是虚拟的DOM-Tree"><span class="nav-number">3.</span> <span class="nav-text">jsx并不是真正的HTML标签，而是虚拟的DOM Tree</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuliZ</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
