@@ -1810,7 +1810,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d1ff60;
+  background: #8fff7f;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2607,10 +2607,10 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: #f5f5f5;
+  background: url("/images/bgcolor.jpg");
 }
 .header-inner {
-  padding: 25px 0 20px;
+  padding: 135px 0 20px;
 }
 .header-inner:before,
 .header-inner:after {
