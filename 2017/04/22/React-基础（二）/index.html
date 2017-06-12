@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://rong480.github.io/2017/04/22/React-基础（二）/index.html">
 <meta property="og:site_name" content="云泽之间">
 <meta property="og:description" content="上一回我们说到了react需要的准备，现在我们说说如何使用React吧。 react的前置概念 React有一个核心思想—组件化 有两个带头大哥—react和react-dom 一个基本运作方式—数据驱动视图 一个神秘卧底—jsx语法 三个主要帮手—state（状态）、props（属性）、refs（实例） 打杂小弟—声明周期   react的使用react的两个带头大哥和神秘卧底jsx这么说完是不">
-<meta property="og:updated_time" content="2017-04-24T02:45:21.219Z">
+<meta property="og:updated_time" content="2017-06-12T08:12:08.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React-基础（二）">
 <meta name="twitter:description" content="上一回我们说到了react需要的准备，现在我们说说如何使用React吧。 react的前置概念 React有一个核心思想—组件化 有两个带头大哥—react和react-dom 一个基本运作方式—数据驱动视图 一个神秘卧底—jsx语法 三个主要帮手—state（状态）、props（属性）、refs（实例） 打杂小弟—声明周期   react的使用react的两个带头大哥和神秘卧底jsx这么说完是不">
@@ -109,7 +109,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Mist',
-    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -348,6 +348,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -406,8 +428,8 @@
 <p>但显示的时间仅是现在的时间，不能及时修改时间，我们暂且用这种想法试试呢？<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Ul extends React.Component&#123;</div><div class="line">  constructor()&#123;</div><div class="line">    super();</div><div class="line">    this.state = &#123;</div><div class="line">      time:(new Date()).toLocaleTimeString()</div><div class="line">    &#125;</div><div class="line">	setInterval(()=&gt;&#123;</div><div class="line">      this.state.time=(new Date()).toLocaleTimeString()</div><div class="line">    &#125;,1000)</div><div class="line">  &#125;</div><div class="line">  say()&#123;</div><div class="line">    return("hello world")</div><div class="line">  &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>这样的写法也不会及时更改时间，永远不要直接修改state，如果要出现页面view的变化，要通过setState方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setInterval(()=&gt;&#123;</div><div class="line">     <span class="keyword">this</span>.setState(&#123;time:(<span class="keyword">new</span> Date()).toLocaleTimeString()&#125;)</div><div class="line">   &#125;,<span class="number">1000</span>)</div></pre></td></tr></table></figure></p>
 <p>这样显示的就是即时时间<br>但都写在一个文件里，不太好，能不能通过引用组件呢？<br>我们在index.js里写：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Ul from <span class="string">'./Ul.js'</span></div></pre></td></tr></table></figure></p>
-<p>在同级创建个Ul.js文件<br>可以把有关Ul组件的东西考到Ul.js里，一定要在Ul.js里引用react，并在最后抛出Ul组件<br>则在Ul.js里写：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import React from "react"</div><div class="line"></div><div class="line">class Ul extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">        this.state = &#123;</div><div class="line">            time:(new Date()).toLocaleTimeString()</div><div class="line">        &#125;</div><div class="line">        setInterval(()=&gt;&#123;</div><div class="line">            this.setState(&#123;time:(new Date()).toLocaleTimeString()&#125;)</div><div class="line">    &#125;,1000)</div><div class="line">    &#125;</div><div class="line">    say()&#123;</div><div class="line">        return("hello world")</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">        &lt;ul&gt;</div><div class="line">        &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Ul</div></pre></td></tr></table></figure></p>
-<h2 id="jsx并不是真正的HTML标签，而是虚拟的DOM-Tree"><a href="#jsx并不是真正的HTML标签，而是虚拟的DOM-Tree" class="headerlink" title="jsx并不是真正的HTML标签，而是虚拟的DOM Tree"></a>jsx并不是真正的HTML标签，而是虚拟的DOM Tree</h2><p>我们会发现，刚刚实现的网页，在浏览器上，对象里，有个div，既不在head标签内，也不再body标签内，而是单独的一个div，点开会发现，里面有个#shadow-root,这个东西就是个 <strong>虚拟的 DOM Tree</strong> ，他是DOM结构的一个映射，一个影子。<br>即在react一般不会在真实的DOM Tree里操作，一般是在虚拟的DOM Tree中实现，再投射在真实的DOM Tree。<br>这里再说一下react厉害之处，它可以识别到真实的DOM Tree和虚拟的DOM Tree。比如刚刚的时间，原来使用的是把整个页面都重新刷新一遍，现在，只需要刷新时间这部分的内容就可以了。<br>jsx中的{}插值的位置都很随意。</p>
+<p>为什么此处的Ul要大写呢？<br>因为jsx语法中，当开头字母是小写的时候，即判定为element，也就是普通网页上的标签，首字母大写的，被定义为自定义组件标签。<br>在同级创建个Ul.js文件<br>可以把有关Ul组件的东西考到Ul.js里，一定要在Ul.js里引用react，并在最后抛出Ul组件<br>则在Ul.js里写：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import React from "react"</div><div class="line"></div><div class="line">class Ul extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">        this.state = &#123;</div><div class="line">            time:(new Date()).toLocaleTimeString()</div><div class="line">        &#125;</div><div class="line">        setInterval(()=&gt;&#123;</div><div class="line">            this.setState(&#123;time:(new Date()).toLocaleTimeString()&#125;)</div><div class="line">    &#125;,1000)</div><div class="line">    &#125;</div><div class="line">    say()&#123;</div><div class="line">        return("hello world")</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">        &lt;ul&gt;</div><div class="line">        &lt;li&gt;&#123; 1+1 &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123; 3&gt;4 ? '真的':'假的' &#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.say()&#125;&lt;/li&gt;</div><div class="line">        &lt;li&gt;&#123;this.state.time&#125;&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">    )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">export default Ul</div></pre></td></tr></table></figure></p>
+<h2 id="jsx并不是真正的HTML标签，而是虚拟的DOM-Tree"><a href="#jsx并不是真正的HTML标签，而是虚拟的DOM-Tree" class="headerlink" title="jsx并不是真正的HTML标签，而是虚拟的DOM Tree"></a>jsx并不是真正的HTML标签，而是虚拟的DOM Tree</h2><p>我们会发现，刚刚实现的网页，在浏览器上，对象里，有个div，既不在head标签内，也不再body标签内，而是单独的一个div，点开会发现，里面有个#shadow-root,这个东西就是个 <strong>虚拟的 DOM Tree</strong>，他是DOM结构的一个映射，一个影子。<br>即在react一般不会在真实的DOM Tree里操作，一般是在虚拟的DOM Tree中实现，再投射在真实的DOM Tree。<br>这里再说一下react厉害之处，它可以识别到真实的DOM Tree和虚拟的DOM Tree。比如刚刚的时间，原来使用的是把整个页面都重新刷新一遍，现在，只需要刷新时间这部分的内容就可以了。<br>jsx中的{}插值的位置都很随意。</p>
 
       
     </div>
@@ -458,7 +480,17 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React-React基础-react-react-dom-数据驱动视图-jsx/" rel="tag"># React,React基础,react,react-dom,数据驱动视图,jsx</a>
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/React基础/" rel="tag"># React基础</a>
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/react-dom/" rel="tag"># react-dom</a>
+          
+            <a href="/tags/数据驱动视图/" rel="tag"># 数据驱动视图</a>
+          
+            <a href="/tags/jsx/" rel="tag"># jsx</a>
           
         </div>
       
@@ -564,13 +596,22 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1144,6 +1185,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 
