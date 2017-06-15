@@ -835,7 +835,7 @@ pre .javascript .function {
   display: block;
   width: 22px;
   height: 2px;
-  background: #555;
+  background: #ddd;
   border-radius: 1px;
 }
 .btn-bar+.btn-bar {
@@ -1810,7 +1810,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffcc4a;
+  background: #feeb74;
 }
 .links-of-blogroll {
   font-size: 13px;
