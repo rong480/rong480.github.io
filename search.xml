@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[面试html部分]]></title>
+    <title><![CDATA[Animation用法总结]]></title>
+    <url>%2F2017%2F06%2F21%2FAnimation-%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[引入首先，说一下为什么要使用==Animation==呢？为什么我们不用==transition==呢？下面我来总结一下transition的局限性。 transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，除非设置成多次触发，不能够自身循环； 一条transition的规则内，只能定义一个属性的状态变化及其相应的变化方式和时间轨迹，不能同时给两个属性同时赋值（除非同时给所有值赋值相同的变化方式和时间轨迹），即写法相对的繁冗。如下：1234567891011.transitiondemo&#123; width:200px; height: 200px; background: #f00; transition: 2s height,1s 1s width,3s background;&#125;.transitiondemo:hover&#123; width: 500px; height:600px; background: #0f0;&#125; transition里面的属性每条都需要单独来写，解释了transition里的第4条。这时，CSS3里的Animation就出来解决这些问题了。 Animation基本用法在body标签里创建个div，赋个类名叫animationdemo，然后写好他的初始样式：12345.animationdemo&#123; width:200px; height: 200px; background: #f00;&#125; 然后，要让他动画起来，首先，要给他一个动画名和持续时间：123.animationdemo:hover&#123; animation: 3s animatedemo;&#125; 这里面的3s是指这个动画持续的时间，animatedemo则是我定义的动画名，现在需要设置动画过程，这里要引入一个创建动画的==@keyframes==规则：1234@keyframes animatedemo &#123; 50% &#123;background: #0f0&#125; 100% &#123;background: #00f&#125;&#125; @keyframes + 动画名{动画过程}，然后在动画过程部分，写上占动画时间百分比，修改的属性及属性值，动画会圆滑的过渡到你设置的位置。个人理解：此处加个写动画时间和百分数不是随意写的，现在市面的显示器，一般为60帧（即将一秒平分60份，每份16.666…667ms），所以设置动画时需要算一下帧数。组合起来，CSS内的代码是这样的：123456789101112.animationdemo&#123; width:200px; height: 200px; background: #f00;&#125;.animationdemo:hover&#123; animation: 3s animatedemo;&#125;@keyframes animatedemo &#123; 50% &#123;background: #0f0&#125; 100% &#123;background: #00f&#125;&#125;]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>CSS3</tag>
+        <tag>Animation</tag>
+        <tag>样式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HTML基础]]></title>
     <url>%2F2017%2F06%2F05%2F%E9%9D%A2%E8%AF%95html%E9%83%A8%E5%88%86%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[HTMLHTML简介HTML]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+        <tag>基础</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[React-基础（三）]]></title>

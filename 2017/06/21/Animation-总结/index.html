@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="React,React基础," />
+  <meta name="keywords" content="CSS,CSS3,Animation,样式," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="首先，生成新的react文件夹，还是要删除所有东西，只留index.js和logo.svg在index.js中创建新的项目12345678import React from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;import App from &apos;./app.js&apos;ReactDOM.render(    &amp;lt;App /&amp;gt;,    document.g">
-<meta name="keywords" content="React,React基础">
+<meta name="description" content="引入首先，说一下为什么要使用==Animation==呢？为什么我们不用==transition==呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复">
+<meta name="keywords" content="CSS,CSS3,Animation,样式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-基础（三）">
-<meta property="og:url" content="http://rong480.github.io/2017/04/24/React-基础（三）/index.html">
+<meta property="og:title" content="Animation用法总结">
+<meta property="og:url" content="http://rong480.github.io/2017/06/21/Animation-总结/index.html">
 <meta property="og:site_name" content="云泽之间">
-<meta property="og:description" content="首先，生成新的react文件夹，还是要删除所有东西，只留index.js和logo.svg在index.js中创建新的项目12345678import React from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;import App from &apos;./app.js&apos;ReactDOM.render(    &amp;lt;App /&amp;gt;,    document.g">
-<meta property="og:updated_time" content="2017-06-12T09:01:56.000Z">
+<meta property="og:description" content="引入首先，说一下为什么要使用==Animation==呢？为什么我们不用==transition==呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复">
+<meta property="og:updated_time" content="2017-06-21T02:48:09.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React-基础（三）">
-<meta name="twitter:description" content="首先，生成新的react文件夹，还是要删除所有东西，只留index.js和logo.svg在index.js中创建新的项目12345678import React from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;import App from &apos;./app.js&apos;ReactDOM.render(    &amp;lt;App /&amp;gt;,    document.g">
+<meta name="twitter:title" content="Animation用法总结">
+<meta name="twitter:description" content="引入首先，说一下为什么要使用==Animation==呢？为什么我们不用==transition==呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://rong480.github.io/2017/04/24/React-基础（三）/"/>
+  <link rel="canonical" href="http://rong480.github.io/2017/06/21/Animation-总结/"/>
 
 
 
 
 
-  <title>React-基础（三） | 云泽之间</title>
+  <title>Animation用法总结 | 云泽之间</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -308,7 +308,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rong480.github.io/2017/04/24/React-基础（三）/">
+    <link itemprop="mainEntityOfPage" href="http://rong480.github.io/2017/06/21/Animation-总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuliZ">
@@ -325,7 +325,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">React-基础（三）</h2>
+          <h2 class="post-title" itemprop="name headline">Animation用法总结</h2>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-24T10:17:46+08:00">
-                2017-04-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-21T09:12:07+08:00">
+                2017-06-21
               </time>
             
 
@@ -360,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index">
-                    <span itemprop="name">react</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -394,16 +394,19 @@
       
 
       
-        <p>首先，生成新的react文件夹，还是要删除所有东西，只留index.js和logo.svg<br>在index.js中创建新的项目<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React from <span class="string">'react'</span></div><div class="line"><span class="keyword">import</span> ReactDOM from <span class="string">'react-dom'</span></div><div class="line"><span class="keyword">import</span> App from <span class="string">'./app.js'</span></div><div class="line"></div><div class="line">ReactDOM.render(</div><div class="line">    &lt;App /&gt;,</div><div class="line">    document.getElementById(<span class="string">'root'</span>)</div><div class="line">)</div></pre></td></tr></table></figure></p>
-<p>再在同级文件夹内，创建app.js文件，在app.js文件内输入：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import React from 'react'</div><div class="line"></div><div class="line">export default class App extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">        this.state=&#123;</div><div class="line">            times:'second'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    times(t)&#123;</div><div class="line">        return(t)</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h1&gt;hello world &#123;this.state.times&#125;&lt;/h1&gt;</div><div class="line">                &lt;h1&gt;hello world &#123;this.times("3rd")&#125;&lt;/h1&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样很好理解，现在说一个新的点，react中的<strong>事件</strong></p>
-<h2 id="React事件"><a href="#React事件" class="headerlink" title="React事件"></a>React事件</h2><p>比如在app里面添加一个按钮，让它具有onClick事件。在app.js中继续输入：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">import React from 'react'</div><div class="line"></div><div class="line">export default class App extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">    &#125;</div><div class="line">    clickHandler()&#123;</div><div class="line">        alert("好玩么？")</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;button onClick=&#123;this.clickHandler&#125;&gt;点击按钮&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这样，就实现了点击按钮，会弹出对话框的效果。<br>我们再试试如下的按钮会实现吗？<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">import React from 'react'</div><div class="line"></div><div class="line">export default class App extends React.Component&#123;</div><div class="line">    constructor()&#123;</div><div class="line">        super();</div><div class="line">        this.state=&#123;</div><div class="line">            count:0</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    clickHandler()&#123;</div><div class="line">        alert("好玩么？")</div><div class="line">    &#125;</div><div class="line">    addHandler()&#123;</div><div class="line">        this.setState(</div><div class="line">            &#123;</div><div class="line">                count:this.state.count+1</div><div class="line">            &#125;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">    render()&#123;</div><div class="line">        return(</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;button onClick=&#123;this.clickHandler&#125;&gt;点击按钮&lt;/button&gt;</div><div class="line">                &lt;h2&gt;你刚刚点击了下面的按钮几次&lt;/h2&gt;</div><div class="line">                &lt;button onClick=&#123;this.addHandler&#125;&gt;+1&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当点击+1按钮时，console控制台会输出：<font color="red">Uncaught TypeError:Cannot read property ‘setState’ of null at addHandler</font><br>到底是什么意思呢，简单翻译过来就是 未能捕获类型错误：不能找到在addHandler中的空具有的“setState”属性。翻译过来好像不像人话，简单解释一下，就是因为this的指向有问题，所以，会把this指向null。具体解释下：<br>先看&lt;button onClick={this.addHandler}&gt;+1&lt;/button&gt;中的this的指向是没问题的，是指向App的，但是在点击时候，是按钮在调用这个对象（this.addHandler），但是，我们现在是个虚拟的 DOM Tree，它里面是没有真正的button，所以此时的button实际是null，那如何实现这样的绑定呢？</p>
-<h3 id="bind（）"><a href="#bind（）" class="headerlink" title="bind（）"></a>bind（）</h3><p><strong>bind()方法，绑定方法，能改变一个对象的上下文环境,bind后面写着哪个对象，就会让前面的方法指向哪个对象</strong><br>在constructor中加入this.addHandler = this.addHandler.bind(this);<br>绑定后，addHandler方法中的this就能正确的指向。</p>
-<p>怎么能看到我们的state里的count值变了呢？此处，我们需要下载一个能测试react改变的状态值的小插件，我在chrome浏览器登陆谷歌网上应用商店，搜索React Developer Tools，并下载，就能实现看到react改变状态值了。</p>
-<p><strong>最好将所有调用的事件都bind()一下，这个是有必要的。</strong></p>
-<h3 id="react里的for循环"><a href="#react里的for循环" class="headerlink" title="react里的for循环"></a>react里的for循环</h3><p>有的时候，我们需要将</p>
+        <h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>首先，说一下为什么要使用==Animation==呢？为什么我们不用==transition==呢？下面我来总结一下transition的局限性。</p>
+<ol>
+<li>transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生；</li>
+<li>transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的；</li>
+<li>transition是一次性的属性，不能够反复发生，除非设置成多次触发，不能够自身循环；</li>
+<li>一条transition的规则内，只能定义一个属性的状态变化及其相应的变化方式和时间轨迹，不能同时给两个属性同时赋值（除非同时给所有值赋值相同的变化方式和时间轨迹），即写法相对的繁冗。如下：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transitiondemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">  transition: 2s height,1s 1s width,3s background;</div><div class="line">&#125;</div><div class="line">.transitiondemo:hover&#123;</div><div class="line">  width: 500px;</div><div class="line">  height:600px;</div><div class="line">  background: #0f0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>transition里面的属性每条都需要单独来写，解释了transition里的第4条。<br>这时，CSS3里的Animation就出来解决这些问题了。</p>
+<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>在body标签里创建个div，赋个类名叫animationdemo，然后写好他的初始样式：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后，要让他动画起来，首先，要给他一个动画名和持续时间：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  <span class="attr">animation</span>: <span class="number">3</span>s animatedemo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里面的<strong>3s</strong>是指这个动画持续的时间，<strong>animatedemo</strong>则是我定义的动画名，现在需要设置动画过程，这里要引入一个创建动画的==@keyframes==规则：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>@keyframes + 动画名{动画过程}，然后在动画过程部分，写上占动画时间百分比，修改的属性及属性值，动画会圆滑的过渡到你设置的位置。<br><strong>个人理解</strong>：此处加个写动画时间和百分数不是随意写的，现在市面的显示器，一般为60帧（即将一秒平分60份，每份16.666…667ms），所以设置动画时需要算一下帧数。<br>组合起来，CSS内的代码是这样的：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation: 3s animatedemo;</div><div class="line">&#125;</div><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -454,9 +457,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"># React</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
-            <a href="/tags/React基础/" rel="tag"># React基础</a>
+            <a href="/tags/CSS3/" rel="tag"># CSS3</a>
+          
+            <a href="/tags/Animation/" rel="tag"># Animation</a>
+          
+            <a href="/tags/样式/" rel="tag"># 样式</a>
           
         </div>
       
@@ -469,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/22/React-基础（二）/" rel="next" title="React-基础（二）">
-                <i class="fa fa-chevron-left"></i> React-基础（二）
+              <a href="/2017/06/05/面试html部分/" rel="next" title="HTML基础">
+                <i class="fa fa-chevron-left"></i> HTML基础
               </a>
             
           </div>
@@ -478,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/05/面试html部分/" rel="prev" title="HTML基础">
-                HTML基础 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React事件"><span class="nav-number">1.</span> <span class="nav-text">React事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bind（）"><span class="nav-number">1.1.</span> <span class="nav-text">bind（）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#react里的for循环"><span class="nav-number">1.2.</span> <span class="nav-text">react里的for循环</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation"><span class="nav-number">2.</span> <span class="nav-text">Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li></ol></li></ol></div>
             
 
           </div>
