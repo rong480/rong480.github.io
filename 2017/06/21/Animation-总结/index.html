@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="引入首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，除">
+<meta name="description" content="引入 首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，">
 <meta name="keywords" content="CSS,CSS3,Animation,样式,动画">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Animation用法总结">
 <meta property="og:url" content="http://rong480.github.io/2017/06/21/Animation-总结/index.html">
 <meta property="og:site_name" content="云泽之间">
-<meta property="og:description" content="引入首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，除">
+<meta property="og:description" content="引入 首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，">
 <meta property="og:updated_time" content="2017-06-21T05:46:57.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Animation用法总结">
-<meta name="twitter:description" content="引入首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，除">
+<meta name="twitter:description" content="引入 首先，说一下为什么要使用 Animation 呢？为什么我们不用 transition 呢？下面我来总结一下transition的局限性。  transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生； transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的； transition是一次性的属性，不能够反复发生，">
 
 
 
@@ -394,33 +394,142 @@
       
 
       
-        <h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>首先，说一下为什么要使用 <em>Animation</em> 呢？为什么我们不用 <em>transition</em> 呢？下面我来总结一下transition的局限性。</p>
+        <h2>引入</h2>
+<p>首先，说一下为什么要使用 <em>Animation</em> 呢？为什么我们不用 <em>transition</em> 呢？下面我来总结一下transition的局限性。</p>
 <ol>
 <li>transition的使用是需要有事件触发的，所以无法在网页加载无事件时自动发生；</li>
 <li>transition只能用于定义开始状态和结束的状态，不能定义中间状态值，即要实现一个简单的逐帧动画是无法实现的；</li>
 <li>transition是一次性的属性，不能够反复发生，除非设置成多次触发，不能够自身循环；</li>
-<li>一条transition的规则内，只能定义一个属性的状态变化及其相应的变化方式和时间轨迹，不能同时给两个属性同时赋值（除非同时给所有值赋值相同的变化方式和时间轨迹），即写法相对的繁冗。如下：<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transitiondemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">  transition: 2s height,1s 1s width,3s background;</div><div class="line">&#125;</div><div class="line">.transitiondemo:hover&#123;</div><div class="line">  width: 500px;</div><div class="line">  height:600px;</div><div class="line">  background: #0f0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<li>一条transition的规则内，只能定义一个属性的状态变化及其相应的变化方式和时间轨迹，不能同时给两个属性同时赋值（除非同时给所有值赋值相同的变化方式和时间轨迹），即写法相对的繁冗。如下：
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.transitiondemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">  transition: 2s height,1s 1s width,3s background;</div><div class="line">&#125;</div><div class="line">.transitiondemo:hover&#123;</div><div class="line">  width: 500px;</div><div class="line">  height:600px;</div><div class="line">  background: #0f0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
 </ol>
-<p>transition里面的属性每条都需要单独来写，解释了transition里的第4条。<br>这时，CSS3里的Animation就出来解决这些问题了。</p>
-<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>在body标签里创建个div，赋个类名叫animationdemo，然后写好他的初始样式：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后，要让他动画起来，首先，要给他一个动画名和持续时间：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  <span class="attr">animation</span>: <span class="number">3</span>s animatedemo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里面的 <strong>3s</strong> 是指这个动画持续的时间， <strong>animatedemo</strong> 则是我定义的动画名，现在需要设置动画过程，这里要引入一个创建动画的 @<em>keyframes</em> 规则：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>@keyframes + 动画名{动画过程}，然后在动画过程部分，写上占动画时间百分比，修改的属性及属性值，动画会圆滑的过渡到你设置的位置。<br><strong>个人理解</strong> ：此处加个写动画时间和百分数不是随意写的，现在市面的显示器，一般为60帧（即将一秒平分60份，每份16.666…667ms），所以设置动画时需要算一下帧数。<br>组合起来，CSS内的代码是这样的：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation: 3s animatedemo;</div><div class="line">&#125;</div><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>当然，hover里面animation属性的写法是简写的，也可以写成这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-name: animatedemo;  <span class="comment">//动画名</span></div><div class="line">  animation-duration: <span class="number">3</span>s;       <span class="comment">//动画持续时间</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>transition里面的属性每条都需要单独来写，解释了transition里的第4条。
+这时，CSS3里的Animation就出来解决这些问题了。</p>
+<h2>Animation</h2>
+<h3>基本用法</h3>
+<p>在body标签里创建个div，赋个类名叫animationdemo，然后写好他的初始样式：
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后，要让他动画起来，首先，要给他一个动画名和持续时间：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  <span class="attr">animation</span>: <span class="number">3</span>s animatedemo;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里面的 <strong>3s</strong> 是指这个动画持续的时间， <strong>animatedemo</strong> 则是我定义的动画名，现在需要设置动画过程，这里要引入一个创建动画的 @<em>keyframes</em> 规则：
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>@keyframes + 动画名{动画过程}，然后在动画过程部分，写上占动画时间百分比，修改的属性及属性值，动画会圆滑的过渡到你设置的位置。
+<strong>个人理解</strong> ：此处加个写动画时间和百分数不是随意写的，现在市面的显示器，一般为60帧（即将一秒平分60份，每份16.666...667ms），所以设置动画时需要算一下帧数。
+组合起来，CSS内的代码是这样的：
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation: 3s animatedemo;</div><div class="line">&#125;</div><div class="line">@keyframes animatedemo &#123;</div><div class="line">  50% &#123;background: #0f0&#125;</div><div class="line">  100% &#123;background: #00f&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，hover里面animation属性的写法是简写的，也可以写成这样：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-name: animatedemo;  <span class="comment">//动画名</span></div><div class="line">  animation-duration: <span class="number">3</span>s;       <span class="comment">//动画持续时间</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>现在，我们要挨个介绍animation里的属性了。</p>
-<h3 id="animation里的主要属性"><a href="#animation里的主要属性" class="headerlink" title="animation里的主要属性"></a>animation里的主要属性</h3><h4 id="animation-delay"><a href="#animation-delay" class="headerlink" title="animation-delay"></a>animation-delay</h4><p>这个animation的属性是： <em>animation-delay</em> 。它的属性值为 .. s(几秒)，指的是这个动画要延迟多长时间再进行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-delay: <span class="number">1</span>s;  <span class="comment">//动画延迟时间</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="animation-iteration-count"><a href="#animation-iteration-count" class="headerlink" title="animation-iteration-count"></a>animation-iteration-count</h4><p>这个animation的属性是： <em>animation-iteration-count</em> 。它的属性值通常是数字和’infinite’，指的是这个动画要重复循环多少次，如果不设置此值，动画即进行一次结束，属性值设置为 infinite 后，即可让动画无限循环。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-iteration-count: infinite;  <span class="comment">//动画循环次数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="animation-fill-mode"><a href="#animation-fill-mode" class="headerlink" title="animation-fill-mode"></a>animation-fill-mode</h4><p>这个animation的属性是： <em>animation-fill-mode</em> 。指动画结束那一瞬间停留的状态，默认值为 none，即回到动画没开始时的状态。<br>该属性的属性值有以下几种：<br>| 属性值   |  属性值解释   |<br>| :—: | :—: |<br>| none    | 默认值，回到动画没开始的状态    |<br>| forwards    | 动画停留在动画结束最后一帧的状态    |<br>| backwards    | 动画停留在动画开始的第一帧的状态    |<br>| both    | 根据animation-direction属性，轮流使用backwards和forwards    |<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-fill-mode: both;  <span class="comment">//动画结束时停留的状态</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="animation-direction"><a href="#animation-direction" class="headerlink" title="animation-direction"></a>animation-direction</h4><p>这个animation属性是：  <em>animation-direction</em>  。指动画循环播放时动画的播放方向，默认值为normal：即第一次动画时顺序播放，紧接着的下一个动画还是顺序播放，以此类推。<br>该属性的属性值有以下几种：<br>| 属性值   |  属性值解释   |<br>| :—: | :—: |<br>| normal    | 默认值，第一次动画顺序播放，接着的动画都为顺序播放    |<br>| alternate    | 第一次动画为顺序播放，接着下一个动画播放顺序与上一个动画顺序相反    |<br>| reverse    | 第一次动画逆序播放，接下来的动画都为逆序播放    |<br>| alternate-reverse    | 第一次动画为逆序播放，接着下一个动画播放顺序与上一个动画顺序相反    |<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-direction: alternate;  <span class="comment">//动画循环播放的播放方向</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="animation-play-state"><a href="#animation-play-state" class="headerlink" title="animation-play-state"></a>animation-play-state</h4><p>这个animation的属性是：  <em>animation-play-state</em>  。指动画循环时突然打断的状态，没有默认值，如不设置此值，默认的状态是，当打断动画，动画会自动回到动画的第一帧状态；当设置成paused值时，动画即使被打断，也停留在打断时的动画帧数，不会跳转到动画初始帧。<br>该属性的属性值有以下几种：<br>| 属性值   |  属性值解释   |<br>| :—: | :—: |<br>| running    | 规定动画播放    |<br>| paused    | 规定动画暂停    |<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">  animation: 3s 1s animatedemo infinite both alternate;</div><div class="line">  animation-play-state: paused;  //规定动画暂停</div><div class="line"></div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-play-state: running;  //规定动画播放</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可以看到，如果没有发生hover动作的时候，他是停留在paused状态下的，当hover上时，动画会进行，突然不hover时，动画不会回到第一帧，会暂停在当前动画进行的状态<br>此属性通过js来控制，可以实现更多效果，主要为了突然停止动画，停在当前运行状态。</p>
-<h4 id="属性总结"><a href="#属性总结" class="headerlink" title="属性总结"></a>属性总结</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> .animationdemo:hover&#123;</div><div class="line">   animation-name: animatedemo;  <span class="comment">//动画名</span></div><div class="line">   animation-duration: <span class="number">3</span>s;      <span class="comment">//动画持续时间</span></div><div class="line">   animation-delay: <span class="number">1</span>s;  <span class="comment">//动画延迟时间</span></div><div class="line">   animation-iteration-count: infinite;  <span class="comment">//动画循环次数</span></div><div class="line">   animation-fill-mode: both;  <span class="comment">//动画结束时停留的状态</span></div><div class="line">   animation-direction: alternate;  <span class="comment">//动画循环播放的播放方向</span></div><div class="line">animation-play-state: paused;  <span class="comment">//规定动画暂停</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>当然，以上的属性值都是可以简写成一行的，比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  <span class="attr">animation</span>: <span class="number">3</span>s <span class="number">1</span>s animatedemo infinite both alternate paused;</div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-play-state: running;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3>animation里的主要属性</h3>
+<h4>animation-delay</h4>
+<p>这个animation的属性是： <em>animation-delay</em> 。它的属性值为 .. s(几秒)，指的是这个动画要延迟多长时间再进行。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-delay: <span class="number">1</span>s;  <span class="comment">//动画延迟时间</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4>animation-iteration-count</h4>
+<p>这个animation的属性是： <em>animation-iteration-count</em> 。它的属性值通常是数字和'infinite'，指的是这个动画要重复循环多少次，如果不设置此值，动画即进行一次结束，属性值设置为 infinite 后，即可让动画无限循环。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-iteration-count: infinite;  <span class="comment">//动画循环次数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4>animation-fill-mode</h4>
+<p>这个animation的属性是： <em>animation-fill-mode</em> 。指动画结束那一瞬间停留的状态，默认值为 none，即回到动画没开始时的状态。
+该属性的属性值有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">属性值解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">none</td>
+<td style="text-align:center">默认值，回到动画没开始的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">forwards</td>
+<td style="text-align:center">动画停留在动画结束最后一帧的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">backwards</td>
+<td style="text-align:center">动画停留在动画开始的第一帧的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">both</td>
+<td style="text-align:center">根据animation-direction属性，轮流使用backwards和forwards</td>
+</tr>
+</tbody>
+</table>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-fill-mode: both;  <span class="comment">//动画结束时停留的状态</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4>animation-direction</h4>
+<p>这个animation属性是：  <em>animation-direction</em>  。指动画循环播放时动画的播放方向，默认值为normal：即第一次动画时顺序播放，紧接着的下一个动画还是顺序播放，以此类推。
+该属性的属性值有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">属性值解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">normal</td>
+<td style="text-align:center">默认值，第一次动画顺序播放，接着的动画都为顺序播放</td>
+</tr>
+<tr>
+<td style="text-align:center">alternate</td>
+<td style="text-align:center">第一次动画为顺序播放，接着下一个动画播放顺序与上一个动画顺序相反</td>
+</tr>
+<tr>
+<td style="text-align:center">reverse</td>
+<td style="text-align:center">第一次动画逆序播放，接下来的动画都为逆序播放</td>
+</tr>
+<tr>
+<td style="text-align:center">alternate-reverse</td>
+<td style="text-align:center">第一次动画为逆序播放，接着下一个动画播放顺序与上一个动画顺序相反</td>
+</tr>
+</tbody>
+</table>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-direction: alternate;  <span class="comment">//动画循环播放的播放方向</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4>animation-play-state</h4>
+<p>这个animation的属性是：  <em>animation-play-state</em>  。指动画循环时突然打断的状态，没有默认值，如不设置此值，默认的状态是，当打断动画，动画会自动回到动画的第一帧状态；当设置成paused值时，动画即使被打断，也停留在打断时的动画帧数，不会跳转到动画初始帧。
+该属性的属性值有以下几种：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">属性值</th>
+<th style="text-align:center">属性值解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">running</td>
+<td style="text-align:center">规定动画播放</td>
+</tr>
+<tr>
+<td style="text-align:center">paused</td>
+<td style="text-align:center">规定动画暂停</td>
+</tr>
+</tbody>
+</table>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  width:200px;</div><div class="line">  height: 200px;</div><div class="line">  background: #f00;</div><div class="line">  animation: 3s 1s animatedemo infinite both alternate;</div><div class="line">  animation-play-state: paused;  //规定动画暂停</div><div class="line"></div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-play-state: running;  //规定动画播放</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看到，如果没有发生hover动作的时候，他是停留在paused状态下的，当hover上时，动画会进行，突然不hover时，动画不会回到第一帧，会暂停在当前动画进行的状态
+此属性通过js来控制，可以实现更多效果，主要为了突然停止动画，停在当前运行状态。</p>
+<h4>属性总结</h4>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"> .animationdemo:hover&#123;</div><div class="line">   animation-name: animatedemo;  <span class="comment">//动画名</span></div><div class="line">   animation-duration: <span class="number">3</span>s;      <span class="comment">//动画持续时间</span></div><div class="line">   animation-delay: <span class="number">1</span>s;  <span class="comment">//动画延迟时间</span></div><div class="line">   animation-iteration-count: infinite;  <span class="comment">//动画循环次数</span></div><div class="line">   animation-fill-mode: both;  <span class="comment">//动画结束时停留的状态</span></div><div class="line">   animation-direction: alternate;  <span class="comment">//动画循环播放的播放方向</span></div><div class="line">animation-play-state: paused;  <span class="comment">//规定动画暂停</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>当然，以上的属性值都是可以简写成一行的，比如
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.animationdemo&#123;</div><div class="line">  <span class="attr">animation</span>: <span class="number">3</span>s <span class="number">1</span>s animatedemo infinite both alternate paused;</div><div class="line">&#125;</div><div class="line">.animationdemo:hover&#123;</div><div class="line">  animation-play-state: running;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>以上，为animation里的主要属性，下面来介绍介绍keyframes。</p>
-<h3 id="keyframes"><a href="#keyframes" class="headerlink" title="@keyframes"></a>@keyframes</h3><p>@keyframes 是用来定义动画的具体流程的，在里面可以写动画过程的各个状态值。格式如下：<br>@keyframes 动画名{<br>    动画进行的百分比 {属性1：属性值；属性2：属性值；属性3…}<br>    动画进行的百分比 {属性1：属性值；属性2：属性值；}<br>}<br>具体写法见下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;     //animatedemo为我设置的动画名</div><div class="line">  0% &#123;background: #f0f;width:300px;&#125;   //属性1为background;属性2为width；</div><div class="line">  50% &#123;background: #0f0;&#125;  //属性1为background；属性2没写，即回到元素该属性值的状态</div><div class="line">  100% &#123;background: #00f;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>里面得0%可以用from代替，100%可以用to代替。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;     //animatedemo为我设置的动画名</div><div class="line">  from &#123;background: #f0f;width:300px;&#125;   //属性1为background;属性2为width；</div><div class="line">  50% &#123;background: #0f0;&#125;  //属性1为background；属性2没写，即回到元素该属性值的状态</div><div class="line">  to &#123;background: #00f;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>animation属性解决掉了transition局限性，更为好用。<br>好的animation不止是设计的良苦用心，也是前端的细心和想象力。<br>说了很多，但是想要做出好的效果还是很难的，这里感谢<a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external">阮一峰的博客</a>，<a href="http://www.runoob.com/" target="_blank" rel="external">菜鸟教程</a>。</p>
+<h3>@keyframes</h3>
+<p>@keyframes 是用来定义动画的具体流程的，在里面可以写动画过程的各个状态值。格式如下：
+@keyframes 动画名{
+	动画进行的百分比 {属性1：属性值；属性2：属性值；属性3...}
+	动画进行的百分比 {属性1：属性值；属性2：属性值；}
+}
+具体写法见下：
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;     //animatedemo为我设置的动画名</div><div class="line">  0% &#123;background: #f0f;width:300px;&#125;   //属性1为background;属性2为width；</div><div class="line">  50% &#123;background: #0f0;&#125;  //属性1为background；属性2没写，即回到元素该属性值的状态</div><div class="line">  100% &#123;background: #00f;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>里面得0%可以用from代替，100%可以用to代替。
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@keyframes animatedemo &#123;     //animatedemo为我设置的动画名</div><div class="line">  from &#123;background: #f0f;width:300px;&#125;   //属性1为background;属性2为width；</div><div class="line">  50% &#123;background: #0f0;&#125;  //属性1为background；属性2没写，即回到元素该属性值的状态</div><div class="line">  to &#123;background: #00f;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2>总结</h2>
+<p>animation属性解决掉了transition局限性，更为好用。
+好的animation不止是设计的良苦用心，也是前端的细心和想象力。
+说了很多，但是想要做出好的效果还是很难的，这里感谢<a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="external">阮一峰的博客</a>，<a href="http://www.runoob.com/" target="_blank" rel="external">菜鸟教程</a>。</p>
 
       
     </div>
@@ -664,7 +773,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation"><span class="nav-number">2.</span> <span class="nav-text">Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#animation里的主要属性"><span class="nav-number">2.2.</span> <span class="nav-text">animation里的主要属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-delay"><span class="nav-number">2.2.1.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-iteration-count"><span class="nav-number">2.2.2.</span> <span class="nav-text">animation-iteration-count</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-fill-mode"><span class="nav-number">2.2.3.</span> <span class="nav-text">animation-fill-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-direction"><span class="nav-number">2.2.4.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animation-play-state"><span class="nav-number">2.2.5.</span> <span class="nav-text">animation-play-state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性总结"><span class="nav-number">2.2.6.</span> <span class="nav-text">属性总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#keyframes"><span class="nav-number">2.3.</span> <span class="nav-text">@keyframes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">animation里的主要属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.1.</span> <span class="nav-text">animation-delay</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.</span> <span class="nav-text">animation-iteration-count</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.3.</span> <span class="nav-text">animation-fill-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.4.</span> <span class="nav-text">animation-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.5.</span> <span class="nav-text">animation-play-state</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.6.</span> <span class="nav-text">属性总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">@keyframes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
