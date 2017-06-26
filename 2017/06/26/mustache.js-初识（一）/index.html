@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js库,JavaScript库,mustache,mustache.js,logic-less," />
 
 
 
@@ -90,16 +90,17 @@
 
 
 
-<meta name="description" content="大道至简 知易行难">
+<meta name="description" content="mustache.js 介绍 出于mustache在github上有好多，我此次学习的是janl/mustache， language为JavaScript的那个。 mustache.js概念 官方文档第一句：  What could be more logical awesome than no logic at all?  我翻译不出来，简单就是说，还有什么比毫无逻辑更可怕。 然后作者第一句解">
+<meta name="keywords" content="js库,JavaScript库,mustache,mustache.js,logic-less">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云泽之间">
+<meta property="og:title" content="mustache.js 初识（一）">
 <meta property="og:url" content="http://rong480.github.io/2017/06/26/mustache.js-初识（一）/index.html">
 <meta property="og:site_name" content="云泽之间">
-<meta property="og:description" content="大道至简 知易行难">
-<meta property="og:updated_time" content="2017-06-26T02:10:47.727Z">
+<meta property="og:description" content="mustache.js 介绍 出于mustache在github上有好多，我此次学习的是janl/mustache， language为JavaScript的那个。 mustache.js概念 官方文档第一句：  What could be more logical awesome than no logic at all?  我翻译不出来，简单就是说，还有什么比毫无逻辑更可怕。 然后作者第一句解">
+<meta property="og:updated_time" content="2017-06-26T08:32:41.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="云泽之间">
-<meta name="twitter:description" content="大道至简 知易行难">
+<meta name="twitter:title" content="mustache.js 初识（一）">
+<meta name="twitter:description" content="mustache.js 介绍 出于mustache在github上有好多，我此次学习的是janl/mustache， language为JavaScript的那个。 mustache.js概念 官方文档第一句：  What could be more logical awesome than no logic at all?  我翻译不出来，简单就是说，还有什么比毫无逻辑更可怕。 然后作者第一句解">
 
 
 
@@ -133,7 +134,7 @@
 
 
 
-  <title> | 云泽之间</title>
+  <title>mustache.js 初识（一） | 云泽之间</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -324,7 +325,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline"></h2>
+          <h2 class="post-title" itemprop="name headline">mustache.js 初识（一）</h2>
         
 
         <div class="post-meta">
@@ -336,7 +337,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T10:10:47+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-26T10:41:32+08:00">
                 2017-06-26
               </time>
             
@@ -346,6 +347,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript库/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -371,7 +394,44 @@
       
 
       
-        
+        <h2>mustache.js 介绍</h2>
+<p>出于mustache在github上有好多，我此次学习的是janl/mustache，
+language为JavaScript的那个。</p>
+<h3>mustache.js概念</h3>
+<p>官方文档第一句：</p>
+<blockquote>
+<p>What could be more logical awesome than no logic at all?</p>
+</blockquote>
+<p>我翻译不出来，简单就是说，还有什么比毫无逻辑更可怕。
+然后作者第一句解释mustache是什么，是这样写的：</p>
+<blockquote>
+<p>mustache.js is an implementation of the mustache template system in JavaScript.</p>
+</blockquote>
+<p>我简单翻译过来：mustahce是一个以JavaScript语言实现的mustache模板系统执行者。
+然而好像没法看懂啊，这好像提取不出来什么有用的信息啊！
+紧接着这段重要了啊！！！知识点！！！</p>
+<blockquote>
+<p>Mustache is a logic-less template syntax. It can be used for HTML, config files, source code - anything. It works by expanding tags in a template using values provided in a hash or object.</p>
+</blockquote>
+<p>我简单翻译一下：</p>
+<blockquote>
+<p>Mustache是一个少逻辑的模板语法。它可以用于HTML，配置文件，源代码等任何东西。它通过散列或对象提供的值来扩展模块的标签。</p>
+</blockquote>
+<p>重点词有：少逻辑，模板，可以用于任何东西，通过散列或者对象来扩展标签。
+至此，mustache.js解释出来了。下面我们来看看mustache.js如何使用？</p>
+<h3>mustache引用</h3>
+<p>当要使用mustache.js时，需要先引入mustache.js文件到需要用的页面里去。如果是模块打包生成的项目，需要
+<em>npm install mustache</em>
+引入了mustache之后，我们就要看如何使用mustache了。</p>
+<h2>mustache 使用</h2>
+<h3>mustache使用</h3>
+<p>先举个例子，先定义一个对象
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> view = &#123;</div><div class="line">  <span class="attr">title</span>: <span class="string">"Joe"</span>,</div><div class="line">  <span class="attr">calc</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="number">2</span> + <span class="number">4</span>;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> output = Mustache.render(<span class="string">"&#123;&#123;title&#125;&#125; spends &#123;&#123;calc&#125;&#125;"</span>, view);</div></pre></td></tr></table></figure></p>
+<p>在示例中，Mustache.render内有两个参数，第一个参数为mustache模板，第二个为view对象，里面装着用来渲染进模板的数据或者代码。</p>
+<h3>mustache的API</h3>
+<p>mustache里的api有：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Mustache.render(</div><div class="line">	template : <span class="built_in">String</span>,  <span class="comment">//模板</span></div><div class="line">	view : <span class="built_in">Object</span>,  <span class="comment">//渲染进模板的数据</span></div><div class="line">	partials : </div><div class="line">)</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -418,6 +478,20 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js库/" rel="tag"># js库</a>
+          
+            <a href="/tags/JavaScript库/" rel="tag"># JavaScript库</a>
+          
+            <a href="/tags/mustache/" rel="tag"># mustache</a>
+          
+            <a href="/tags/mustache-js/" rel="tag"># mustache.js</a>
+          
+            <a href="/tags/logic-less/" rel="tag"># logic-less</a>
+          
+        </div>
       
 
       
@@ -485,8 +559,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -523,7 +606,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -577,6 +660,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">mustache.js 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">mustache.js概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">mustache引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">mustache 使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">mustache使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">mustache的API</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

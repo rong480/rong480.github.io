@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[mustache.js 初识（一）]]></title>
     <url>%2F2017%2F06%2F26%2Fmustache.js-%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[mustache.js 介绍 出于mustache在github上有好多，我此次学习的是janl/mustache， language为JavaScript的那个。 mustache.js概念 官方文档第一句： What could be more logical awesome than no logic at all? 我翻译不出来，简单就是说，还有什么比毫无逻辑更可怕。 然后作者第一句解释mustache是什么，是这样写的： mustache.js is an implementation of the mustache template system in JavaScript. 我简单翻译过来：mustahce是一个以JavaScript语言实现的mustache模板系统执行者。 然而好像没法看懂啊，这好像提取不出来什么有用的信息啊！ 紧接着这段重要了啊！！！知识点！！！ Mustache is a logic-less template syntax. It can be used for HTML, config files, source code - anything. It works by expanding tags in a template using values provided in a hash or object. 我简单翻译一下： Mustache是一个少逻辑的模板语法。它可以用于HTML，配置文件，源代码等任何东西。它通过散列或对象提供的值来扩展模块的标签。 重点词有：少逻辑，模板，可以用于任何东西，通过散列或者对象来扩展标签。 至此，mustache.js解释出来了。下面我们来看看mustache.js如何使用？ mustache引用 当要使用mustache.js时，需要先引入mustache.js文件到需要用的页面里去。如果是模块打包生成的项目，需要 npm install mustache 引入了mustache之后，我们就要看如何使用mustache了。 mustache 使用 mustache使用 先举个例子，先定义一个对象 1234567var view = &#123; title: "Joe", calc: function () &#123; return 2 + 4; &#125;&#125;;var output = Mustache.render("&#123;&#123;title&#125;&#125; spends &#123;&#123;calc&#125;&#125;", view); 在示例中，Mustache.render内有两个参数，第一个参数为mustache模板，第二个为view对象，里面装着用来渲染进模板的数据或者代码。 mustache的API mustache里的api有： 12345Mustache.render( template : String, //模板 view : Object, //渲染进模板的数据 partials : )]]></content>
+      <categories>
+        <category>JavaScript库</category>
+      </categories>
+      <tags>
+        <tag>js库</tag>
+        <tag>JavaScript库</tag>
+        <tag>mustache</tag>
+        <tag>mustache.js</tag>
+        <tag>logic-less</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[TweenJS 初识（一）]]></title>
