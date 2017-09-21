@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js库,iscroll,iscroll.js,JavaScript库," />
+  <meta name="keywords" content="JavaScript库,js库,iscroll,iscroll.js,移动端,H5," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="欢迎使用 {小书匠}(xiaoshujiang)编辑器，您可以通过==设置==里的修改模板来改变新建文章的内容。">
-<meta name="keywords" content="js库,iscroll,iscroll.js,JavaScript库">
+<meta name="description" content="iscroll简单介绍 官方介绍iscroll是这样的：iscroll不只会scroll，它能处理任何需要随着用户交互调整的元素。它增设有滚动、缩放、平移、无限滚动、滚动视差功能，传送到你的项目并且管理这些功能只用4kb。 iscroll的初始设置 先要引入iscroll，并在html加载后加载。 然后实例化iscroll给一个对象。 12345var myScroll = new IScroll">
+<meta name="keywords" content="JavaScript库,js库,iscroll,iscroll.js,移动端,H5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iscroll.js 常用api">
 <meta property="og:url" content="http://rong480.github.io/2017/07/05/iscroll.js 常用api/index.html">
 <meta property="og:site_name" content="云泽之间">
-<meta property="og:description" content="欢迎使用 {小书匠}(xiaoshujiang)编辑器，您可以通过==设置==里的修改模板来改变新建文章的内容。">
-<meta property="og:updated_time" content="2017-07-05T03:18:40.703Z">
+<meta property="og:description" content="iscroll简单介绍 官方介绍iscroll是这样的：iscroll不只会scroll，它能处理任何需要随着用户交互调整的元素。它增设有滚动、缩放、平移、无限滚动、滚动视差功能，传送到你的项目并且管理这些功能只用4kb。 iscroll的初始设置 先要引入iscroll，并在html加载后加载。 然后实例化iscroll给一个对象。 12345var myScroll = new IScroll">
+<meta property="og:updated_time" content="2017-07-07T08:13:30.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iscroll.js 常用api">
-<meta name="twitter:description" content="欢迎使用 {小书匠}(xiaoshujiang)编辑器，您可以通过==设置==里的修改模板来改变新建文章的内容。">
+<meta name="twitter:description" content="iscroll简单介绍 官方介绍iscroll是这样的：iscroll不只会scroll，它能处理任何需要随着用户交互调整的元素。它增设有滚动、缩放、平移、无限滚动、滚动视差功能，传送到你的项目并且管理这些功能只用4kb。 iscroll的初始设置 先要引入iscroll，并在html加载后加载。 然后实例化iscroll给一个对象。 12345var myScroll = new IScroll">
 
 
 
@@ -405,7 +405,450 @@
       
 
       
-        <p>欢迎使用 <strong>{小书匠}(xiaoshujiang)编辑器</strong>，您可以通过==设置==里的修改模板来改变新建文章的内容。</p>
+        <h3>iscroll简单介绍</h3>
+<p>官方介绍iscroll是这样的：iscroll不只会scroll，它能处理任何需要随着用户交互调整的元素。它增设有滚动、缩放、平移、无限滚动、滚动视差功能，传送到你的项目并且管理这些功能只用4kb。</p>
+<h3>iscroll的初始设置</h3>
+<p>先要引入iscroll，并在html加载后加载。
+然后实例化iscroll给一个对象。
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myScroll = <span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, </div><div class="line">	&#123; </div><div class="line">	iscroll的api</div><div class="line">	&#125;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<h3>iscroll里的重点</h3>
+<ol>
+<li>iscroll采用的是querySelector，而不是querySelectorAll；</li>
+<li>这个插件需要知道滚动区域的高度和宽度；</li>
+<li>需要为滚动起容器增加position:relative或者absolute样式；</li>
+<li>如果滚动区域是个复杂的DOM结构，最好能在加载时候设置个延时，100ms到200ms较好。</li>
+</ol>
+<h3>iscroll里的api</h3>
+<h4>核心(The core)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">参数说明</th>
+<th style="text-align:center">参数值</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">useTransform</td>
+<td style="text-align:center">引擎是否使用transform</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">useTransition</td>
+<td style="text-align:center">引擎是否使用transition</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">HWCompositing</td>
+<td style="text-align:center">引擎通过translateZ(0)</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+</tbody>
+</table>
+<p>详细解释：</p>
+<ol>
+<li>当useTransform值设置为false时，则滚动是以left/top属性值进行滚动；但值为true时，滚动是通过调整transform里的translate里的值实现滚动；</li>
+<li>当useTransition值设置为false时，则使用requestAnimationFrame来进行代替，此时元素上不管如果拖动，都不会有有关transtion的属性；但值设置为true时，则动量和弹力是通过transtion-timing-function、贝塞尔曲线、transtion-duration的值来赋值。现在设备上这个值设置多少不太有影响，但是老设备上，用transition效果更好；</li>
+<li>这个是使用在硬件层来改变CSS属性样式，设置为true的时候，在移动设备上将提高性能；但在有些情况下,你可能想要禁用它(特别是如果你有太多的元素和硬件性能跟不上)。
+以上，核心的3个参数默认值都是true，都是利于我们开发的，所以，基本不用设置这些值。</li>
+</ol>
+<h4>基本功能(Basic features)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">参数说明</th>
+<th style="text-align:center">参数值</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bounce</td>
+<td style="text-align:center">当滚动器到达容器边界时他是否执行一个小反弹动画</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true(有反弹动画)</td>
+</tr>
+<tr>
+<td style="text-align:center">click</td>
+<td style="text-align:center">阻止默认浏览器里的鼠标点击事件</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">disableMouse</td>
+<td style="text-align:center">阻止鼠标事件</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">disablePointer</td>
+<td style="text-align:center">阻止指针事件</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">disableTouch</td>
+<td style="text-align:center">阻止触摸事件</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">eventPassthrough</td>
+<td style="text-align:center">只在iscroll范围内影响横向走马灯效果</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">freeScroll</td>
+<td style="text-align:center">在2D情况下，是否能够平面移动</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">keyBindings</td>
+<td style="text-align:center">激活键盘绑定</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">invertWheelDirection</td>
+<td style="text-align:center">反转鼠标滚轮方向</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">momentum</td>
+<td style="text-align:center">快速触摸屏幕时，可以开/关势能动画</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">mouseWheel</td>
+<td style="text-align:center">监听鼠标滚轮</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">preventDefault</td>
+<td style="text-align:center">默认事件</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">scrollbars</td>
+<td style="text-align:center">是否显示默认的滚动条</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">scrollX</td>
+<td style="text-align:center">横向移动</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">scrollY</td>
+<td style="text-align:center">纵向移动</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">startX</td>
+<td style="text-align:center">默认位置为基点滚动，基点的x轴的left值</td>
+<td style="text-align:center">数字</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">startY</td>
+<td style="text-align:center">默认位置为基点滚动，基点的y轴的top值</td>
+<td style="text-align:center">数字</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">tap</td>
+<td style="text-align:center">纵向移动</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+</tbody>
+</table>
+<p>详细说明：</p>
+<ol>
+<li>先从我试出来的几个开始说起，bounce这个API的作用是，当你在元素边缘处继续向边缘拖动，如果该值为true，就能继续拖动并有个反弹的贝塞尔动画。如果是false，到边缘就无法继续拖动了，很显然这个值的默认值一般不用动；</li>
+<li>disableMouse、disablePointer、disableTouch这三个API的作用是，阻止不同操作的事件；</li>
+<li>eventPassthrough这个API是用来让元素横向移动，需要配合scrollX：true，此时即使scrollY设为true，也是不会有执行效果的；</li>
+<li>freeScroll这个API和scrollX与scrollY同时使用有不同之处：当调整一个方向的滚动时，另一个方向的滚动执行效果，想要无拘束的移动，就设置freeScroll为true就行了；</li>
+<li>invertWheelDirection这个API的作用是反向滚轮操作，需要配合mouseWheel：true，即可实现鼠标滚轮操作时，反向操作；</li>
+<li>momentum这个API的作用是是否打开势能动画的，如果设置为false值的话，会提升性能；</li>
+<li>mouseWheel这个API的作用是监听鼠标滚轮的操作，这条没什么好说的；</li>
+<li>preventDefault这个API尽量不设置，除非你知道自己要设置什么；</li>
+<li>startX和startY这两个API是用来设置初始的（0，0）点的位置，右为X轴正向，下为Y轴正向，设置的值只能是数字，比如设置startX为200，startY为200，出现效果是整体向下200px，向右200px，但是一挪动，就又回到初始的（0，0）点为基础点了；</li>
+<li>为了重新写滚动条，所以iScroll禁止了一些默认的浏览器行为，所以想要响应click事件时，设置此值为true。但是不太好用，建议使用自定义的tap 事件来代替它；</li>
+<li>keyBindings暂时没有测试出来效果。</li>
+</ol>
+<h4>滚动条(Scrollbars)</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">参数说明</th>
+<th style="text-align:center">参数值</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">scrollbars</td>
+<td style="text-align:center">用于激活滚动条</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">fadeScrollbars</td>
+<td style="text-align:center">用于滚动条淡入淡出的实现效果</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">interactiveScrollbars</td>
+<td style="text-align:center">用于用户是否可以拖动滚动条</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">resizeScrollbars</td>
+<td style="text-align:center">是否开启重新设置滚动条大小</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">shrinkScrollbars</td>
+<td style="text-align:center">是否在滚动条滚动出去之后会显示较小的尺寸</td>
+<td style="text-align:center">‘clip’/'scale'</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p>详细说明：</p>
+<ol>
+<li>scrollbars这个值如果不设置成true的话，后面的api一点效果都没有；</li>
+<li>fadeScrollbars这个滚动条淡入淡出的效果如果设置成false的话，会节省些资源；</li>
+<li>interactiveScrollbars这个API是用来拖动滚动条的，别人手机测试没问题，我手机测试竖向滚动条拖动不了，很迷；</li>
+<li>shrinkScrollbars这个是设置滚动条滚动出去显示效果及尺寸，当设置为clip时，会大大提升性能，当设置为scale时，会自动关闭useTransition，即使将useTransition值设置为true都不行，使用的是使用requestAnimationFrame，还是对老设备不太友好，但是实现的效果好，各有利弊吧；</li>
+<li>滚动条样式设置</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类名</th>
+<th style="text-align:center">样式位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">.iScrollHorizontalScrollbar</td>
+<td style="text-align:center">指X轴方向的滚动条容器</td>
+</tr>
+<tr>
+<td style="text-align:center">.iScrollVerticalScrollbar</td>
+<td style="text-align:center">指Y轴方向的滚动条容器</td>
+</tr>
+<tr>
+<td style="text-align:center">.iScrollIndicator</td>
+<td style="text-align:center">真正的滚动条指示器</td>
+</tr>
+<tr>
+<td style="text-align:center">.iScrollBothScrollbars</td>
+<td style="text-align:center">只有在双向滚动条都有的时候，会出现</td>
+</tr>
+</tbody>
+</table>
+<p>具体的结构是怎样实现的呢？
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"iScrollVerticalScrollbar iScrollBothScrollbars"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"iScrollIndicator"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"iScrollHorizontalScrollbar iScrollBothScrollbars"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"iScrollIndicator"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4>指示器(Indicators)</h4>
+<p>指示器和之前的写法有点不太一样,他的写法是在底层设置个对象。
+举个例子：
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var myScroll = new IScroll('#wrapper', </div><div class="line">	&#123; </div><div class="line">		indicators: &#123;</div><div class="line">			el: [element|element selector]</div><div class="line">			fade: false,</div><div class="line">			ignoreBoundaries: false,</div><div class="line">			interactive: false,</div><div class="line">			listenX: true,</div><div class="line">			listenY: true,</div><div class="line">			resize: true,</div><div class="line">			shrink: false,</div><div class="line">			speedRatioX: 0,</div><div class="line">			speedRatioY: 0,</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>从这里开始，iscroll让你觉得它不再是个普通的插件。
+下面一一介绍里面的API：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">参数说明</th>
+<th style="text-align:center">参数值</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">el</td>
+<td style="text-align:center">指向一个滚动区间，里面第一个元素就是指示器</td>
+<td style="text-align:center">写选择器</td>
+<td style="text-align:center">必选项</td>
+</tr>
+<tr>
+<td style="text-align:center">ignoreBoundaries</td>
+<td style="text-align:center">让指示器忽略它容器所带来的边界</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">listenX</td>
+<td style="text-align:center">指示器的X轴被监听</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">listenY</td>
+<td style="text-align:center">指示器的Y轴被监听</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">speedRatioX</td>
+<td style="text-align:center">指示器X轴移动速度和滚动条X轴移动速度的关系</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">speedRatioY</td>
+<td style="text-align:center">指示器Y轴移动速度和滚动条Y轴移动速度的关系</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">fade</td>
+<td style="text-align:center">元素是否隐藏</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">interactive</td>
+<td style="text-align:center">该元素是否可以拖动指示器移动</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">resize</td>
+<td style="text-align:center">是否开启重新设置指示器大小</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">true</td>
+</tr>
+<tr>
+<td style="text-align:center">shrink</td>
+<td style="text-align:center">指示器滑动出边界之外，是否会显示较小尺寸</td>
+<td style="text-align:center">‘clip’/'scale'</td>
+<td style="text-align:center">false</td>
+</tr>
+</tbody>
+</table>
+<p>详细说明：</p>
+<ol>
+<li>首先，el是必须得写的，一般赋值为：document.getElementById('earth')或者缩写为('#earth')。如果此项不写，就找不到相应对象；</li>
+<li>listenX和listenY如果设置为false，则不会根据滚动显示出来相应元素；</li>
+<li>speedRatioX和speedRatioY设置的时候，是为了有多个图层的状态，为了实现假3D效果；</li>
+<li>使用指示器的功能，可以实现<strong>视差滚动</strong>。</li>
+</ol>
+<h4>滚动的编程接口</h4>
+<p>可以给myscroll赋予方法。以一种运动轨迹，跳转至某个位置。
+有三种方式的编程接口：</p>
+<ol>
+<li>scrollTo(x, y, time, easing)  跳转到什么位置(x,y)，执行easing的时间都可以设置进去；</li>
+<li>scrollBy(x, y, time, easing)  同scrollTo有点像，是从当前位置滚动个相对位置(x,y)，执行easing的时间；</li>
+<li>scrollToElement(el, time, offsetX, offsetY, easing)  是跳转到对象元素，el是对象的选择器，time就是时间，offsetX和offsetY是跳转对象的横纵坐标偏移量，easing是运行的轨迹；</li>
+<li>一般easing的运动轨迹是一个擦除动画，写法一般是<strong>IScroll.utils.ease.elastic</strong>，当然，除了有elastic之外，还有其他的动画类型：quadratic,circular,back,bounce,elastic。</li>
+</ol>
+<h4>对齐</h4>
+<p>对齐是为了让iscroll自动对齐到固定的位置和元素。
+对齐实际测试，是为了拖动滚动条时，能够自动对齐元素，具体用法是这样的：
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> IScroll(<span class="string">'#wrapper'</span>, &#123;</div><div class="line">        <span class="attr">snap</span>:<span class="string">"div"</span>,</div><div class="line">        <span class="attr">scrollbars</span>:<span class="literal">true</span>,</div><div class="line">        <span class="attr">interactiveScrollbars</span>:<span class="literal">true</span>,</div><div class="line">      &#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>snap的值，可以是true，选择器。</strong>
+下面我们来试试用snap能实现什么样的效果：
+首先引入goToPage(x, y, time, easing)，x是横向轴下一页，y是纵向轴下一页，time是经历时间，easing还是运行函数。
+简单举个例子：
+HTML的文件结构是这样的：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;wrapper&quot;&gt;</div><div class="line">    &lt;div id=&quot;iscroll&quot;&gt;</div><div class="line">      &lt;div&gt;Lorem ipsum dolor sit amet, consectetur.&lt;/div&gt;</div><div class="line">      &lt;button class=&quot;btnsnap&quot;&gt;SNAP&lt;/button&gt;</div><div class="line">      &lt;div&gt;1Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">      &lt;div&gt;2Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">      &lt;div&gt;3Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">      &lt;div&gt;4Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;5Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;6Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;7Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;8Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;9Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;10Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;11Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">	  &lt;div&gt;12Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;	</div><div class="line">	  &lt;div&gt;13Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>我想实现点击button会跳转到第五段的效果，于是，js部分是这样的：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">var myScroll;</div><div class="line">myScroll = new IScroll(&apos;#wrapper&apos;, &#123;</div><div class="line">  mouseWheel: true,</div><div class="line">  scrollX: true,</div><div class="line">  freeScroll: true,</div><div class="line">  snap: &quot;div&quot;,</div><div class="line">  scrollbars: true,</div><div class="line">  interactiveScrollbars: true,</div><div class="line">&#125;);</div><div class="line">function isPassive() &#123;</div><div class="line">  var supportsPassiveOption = false;</div><div class="line">  try &#123;</div><div class="line">    addEventListener(&quot;test&quot;, null, Object.defineProperty(&#123;&#125;, &apos;passive&apos;, &#123;</div><div class="line">      get: function() &#123;</div><div class="line">        supportsPassiveOption = true;</div><div class="line">      &#125;</div><div class="line">    &#125;));</div><div class="line">  &#125; catch (e) &#123;&#125;</div><div class="line">  return supportsPassiveOption;</div><div class="line">&#125;</div><div class="line">document.addEventListener(&apos;touchmove&apos;, function(e) &#123;</div><div class="line">  e.preventDefault();</div><div class="line">&#125;, isPassive() ? &#123;</div><div class="line">  capture: false,</div><div class="line">  passive: false</div><div class="line">&#125; : false);</div><div class="line">$(&quot;.btnsnap&quot;).on(&quot;click&quot;, function() &#123;</div><div class="line">  myScroll.goToPage(0, 5, 1000, IScroll.utils.ease.elastic);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>这样就跳转到第五段了。
+除了有goToPage()这个方法：还有**next()<strong>和</strong>prev()**两个方法，分别是用来跳转到下一页和上一页。</p>
+<h4>缩放</h4>
+<p>为了使用缩放功能，最好我们引入iscroll-zoom.js。
+下面一一介绍里面的API：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">参数说明</th>
+<th style="text-align:center">参数值</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">zoom</td>
+<td style="text-align:center">是否缩放</td>
+<td style="text-align:center">false/true</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomMax</td>
+<td style="text-align:center">缩放最大尺寸比例</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomMin</td>
+<td style="text-align:center">缩放最小尺寸比例</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomStart</td>
+<td style="text-align:center">缩放级数</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">wheelAction</td>
+<td style="text-align:center">鼠标滚轮是否能起到缩放功能</td>
+<td style="text-align:center">zoom</td>
+<td style="text-align:center">undefined</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomMax</td>
+<td style="text-align:center">缩放最大尺寸比例</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomMax</td>
+<td style="text-align:center">缩放最大尺寸比例</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center">zoomMax</td>
+<td style="text-align:center">缩放最大尺寸比例</td>
+<td style="text-align:center">number</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<p>详细说明：</p>
+<ol>
+<li>首先，zoom是必须要设置成为true的，否则无法使用缩放功能；</li>
+<li>wheelAction如果不设置为‘zoom’的话，他的初始值就是‘undefined’，是鼠标滚轮就起滚轮左右，不能起缩放功能；</li>
+<li>zoom是通过transform属性的scale值进行缩放的，所以你懂的，兼容问题；</li>
+<li></li>
+</ol>
 
       
     </div>
@@ -456,13 +899,17 @@
       
         <div class="post-tags">
           
+            <a href="/tags/JavaScript库/" rel="tag"># JavaScript库</a>
+          
             <a href="/tags/js库/" rel="tag"># js库</a>
           
             <a href="/tags/iscroll/" rel="tag"># iscroll</a>
           
             <a href="/tags/iscroll-js/" rel="tag"># iscroll.js</a>
           
-            <a href="/tags/JavaScript库/" rel="tag"># JavaScript库</a>
+            <a href="/tags/移动端/" rel="tag"># 移动端</a>
+          
+            <a href="/tags/H5/" rel="tag"># H5</a>
           
         </div>
       
@@ -484,6 +931,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/17/PIXI使用笔记（一）/" rel="prev" title="PIXI使用笔记（一）">
+                PIXI使用笔记（一） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -532,8 +983,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -548,7 +1008,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -559,7 +1019,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -570,7 +1030,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -624,6 +1084,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">iscroll简单介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">iscroll的初始设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">iscroll里的重点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">iscroll里的api</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.1.</span> <span class="nav-text">核心(The core)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.2.</span> <span class="nav-text">基本功能(Basic features)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.3.</span> <span class="nav-text">滚动条(Scrollbars)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.4.</span> <span class="nav-text">指示器(Indicators)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.5.</span> <span class="nav-text">滚动的编程接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.6.</span> <span class="nav-text">对齐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">4.7.</span> <span class="nav-text">缩放</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
