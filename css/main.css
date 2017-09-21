@@ -1810,7 +1810,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ec93fe;
+  background: #ff9ab0;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2607,7 +2607,7 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: rgba(0,0,51,0.8) url("../images/bgcolor.png") repeat-x top center;
+  background: rgba(7,11,80,0.9) url("../images/bgcolor.png") repeat-x top center;
 }
 .header-inner {
   padding: 215px 0 20px;
@@ -2733,7 +2733,7 @@ hr {
   }
 }
 .menu .menu-item a:hover {
-  background: rgba(0,0,51,0.8);
+  background: rgba(7,11,80,0.9);
 }
 .menu a::before {
   display: none;
